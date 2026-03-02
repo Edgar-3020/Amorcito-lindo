@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nosotros 💙</title>
+<title>Nosotros 🩷💙</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Quicksand:wght@500&display=swap" rel="stylesheet">
 
 <style>
 
-/* ---------------- BASE ---------------- */
+/* BASE */
 
 *{
 margin:0;
@@ -26,24 +26,38 @@ background: linear-gradient(to bottom,#1e3c72,#2a5298,#a18cd1,#fbc2eb);
 position:relative;
 }
 
-/* --------- PARTICULAS BRILLANTES --------- */
+/* BRILLOS */
 
-.particula{
+.brillo{
 position:fixed;
-width:6px;
-height:6px;
+width:4px;
+height:4px;
 background:white;
 border-radius:50%;
-opacity:0.6;
-animation:flotarParticula linear infinite;
+opacity:0.3;
+animation:parpadear 4s infinite alternate;
 }
 
-@keyframes flotarParticula{
-from{transform:translateY(100vh);}
-to{transform:translateY(-10vh);}
+@keyframes parpadear{
+from{opacity:0.1;transform:scale(0.8);}
+to{opacity:0.6;transform:scale(1.2);}
 }
 
-/* ---------------- SECCIONES ---------------- */
+/* FLORES PEONIAS */
+
+.flor{
+position:fixed;
+font-size:22px;
+opacity:0.4;
+animation:flotarFlor linear infinite;
+}
+
+@keyframes flotarFlor{
+from{transform:translateY(110vh) rotate(0deg);}
+to{transform:translateY(-10vh) rotate(360deg);}
+}
+
+/* SECCIONES */
 
 section{
 min-height:100vh;
@@ -58,6 +72,11 @@ transform:translateY(60px);
 transition:1.2s ease;
 position:relative;
 z-index:2;
+border:4px solid white;
+border-radius:25px;
+margin:30px;
+box-shadow:0 0 25px rgba(255,255,255,0.4);
+background:rgba(255,255,255,0.08);
 }
 
 section.visible{
@@ -65,17 +84,17 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* ---------------- SILUETAS ---------------- */
+/* PERSONAS */
 
 .persona{
 width:70px;
 height:170px;
-background:rgba(255,255,255,0.2);
+background:rgba(255,255,255,0.25);
 border-radius:40px;
 position:relative;
-transition:1s;
 }
 
+/* Cabeza */
 .persona::before{
 content:"";
 position:absolute;
@@ -84,113 +103,89 @@ left:18px;
 width:35px;
 height:35px;
 border-radius:50%;
-background:rgba(255,255,255,0.2);
+background:rgba(255,255,255,0.25);
 }
 
-.mujer{
-border-radius:40px 40px 50px 50px;
+/* Cabello rizado */
+.mujer::after{
+content:"";
+position:absolute;
+top:-55px;
+left:5px;
+width:60px;
+height:60px;
+background:rgba(255,255,255,0.2);
+border-radius:50%;
+box-shadow:
+-15px 10px 0 0 rgba(255,255,255,0.2),
+15px 10px 0 0 rgba(255,255,255,0.2),
+0px 20px 0 0 rgba(255,255,255,0.2);
 }
+
+/* FLEX */
 
 .flex{
 display:flex;
 gap:60px;
 flex-wrap:wrap;
 justify-content:center;
-align-items:center;
-}
-
-/* ---------------- FRASES ---------------- */
-
-.frase{
-font-size:clamp(18px,3vw,28px);
-font-style:italic;
-margin-top:40px;
-max-width:800px;
-}
-
-/* ---------------- DIÁLOGOS ---------------- */
-
-.dialogo{
-background:rgba(255,255,255,0.25);
-padding:15px 25px;
-border-radius:20px;
-margin-top:25px;
-font-family:'Dancing Script',cursive;
-font-size:clamp(18px,3vw,26px);
-backdrop-filter:blur(6px);
-max-width:90%;
-animation:fade 1s ease forwards;
-}
-
-@keyframes fade{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
-}
-
-/* ---------------- ABRAZO NATURAL ---------------- */
-
-.abrazo{
-display:flex;
+align-items:flex-end;
 position:relative;
 }
 
+/* DIÁLOGO AUTOMÁTICO */
+
+.dialogo{
+position:absolute;
+top:-120px;
+background:white;
+color:#333;
+padding:12px 20px;
+border-radius:25px;
+font-family:'Quicksand',sans-serif;
+font-size:clamp(16px,2.5vw,22px);
+box-shadow:4px 4px 0px rgba(0,0,0,0.3);
+opacity:0;
+transform:translateY(20px);
+transition:0.8s ease;
+max-width:260px;
+}
+
+.dialogo.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+/* ABRAZO */
+
+.abrazo{
+display:flex;
+gap:20px;
+align-items:flex-end;
+}
+
 .abrazo .persona:first-child{
-animation:acercarIzq 2s ease forwards;
+animation:inclinarIzq 2s ease forwards;
 }
 
 .abrazo .persona:last-child{
-animation:acercarDer 2s ease forwards;
+animation:inclinarDer 2s ease forwards;
 }
 
-@keyframes acercarIzq{
-from{transform:translateX(-80px);}
-to{transform:translateX(0);}
+@keyframes inclinarIzq{
+to{transform:translateX(15px) rotate(-5deg);}
 }
 
-@keyframes acercarDer{
-from{transform:translateX(80px);}
-to{transform:translateX(0);}
+@keyframes inclinarDer{
+to{transform:translateX(-15px) rotate(5deg);}
 }
 
-/* ---------------- CORAZONES ---------------- */
-
-.corazon{
-position:absolute;
-font-size:clamp(18px,3vw,30px);
-color:pink;
-animation:flotar 6s infinite;
-}
-
-@keyframes flotar{
-0%{transform:translateY(0);opacity:0;}
-50%{opacity:1;}
-100%{transform:translateY(-200px);opacity:0;}
-}
-
-/* ---------------- AIRPODS ENTRANDO ---------------- */
-
-.airpod{
-width:25px;
-height:40px;
-background:white;
-border-radius:20px;
-position:absolute;
-top:20px;
-right:-200px;
-animation:entrarAirpod 2s ease forwards;
-}
-
-@keyframes entrarAirpod{
-to{right:-30px;}
-}
-
-/* ---------------- BOLSAS ---------------- */
+/* CAJAS ROPA */
 
 .ropa{
 display:flex;
 gap:15px;
-flex-wrap:wrap;
-justify-content:center;
+margin-top:40px;
 }
 
 .bolsa{
@@ -200,20 +195,19 @@ border:3px solid white;
 border-radius:8px;
 }
 
-/* ---------------- FINAL ---------------- */
+/* FINAL */
 
 .final{
-border:3px solid white;
 padding:35px;
 border-radius:25px;
 max-width:900px;
-font-family:'Dancing Script',cursive;
-font-size:clamp(18px,3vw,28px);
+font-family:'Quicksand',sans-serif;
+font-size:clamp(18px,3vw,26px);
 background:rgba(255,255,255,0.15);
 box-shadow:0 0 20px rgba(255,255,255,0.4);
 }
 
-/* ---------------- RESPONSIVE ---------------- */
+/* RESPONSIVE */
 
 @media(max-width:600px){
 
@@ -232,6 +226,10 @@ left:12px;
 gap:30px;
 }
 
+.dialogo{
+font-size:16px;
+}
+
 }
 
 </style>
@@ -241,102 +239,101 @@ gap:30px;
 <!-- ESCENA 1 -->
 <section>
 <div class="flex">
-<div class="persona"></div>
-<div class="persona mujer"></div>
+<div class="persona">
+<div class="dialogo">Yo no pagaría por eso...</div>
 </div>
 
-<div class="frase">
-Quiero que sepas que sin importar las cosas siempre estoy para apoyarte en lo que es importante para ti
+<div class="persona mujer">
+<div class="dialogo">Pero a mí me gusta...</div>
+</div>
 </div>
 </section>
 
-<!-- ESCENA 2 ABRAZO -->
-<section>
-<div class="abrazo">
-<div class="persona"></div>
-<div class="persona mujer"></div>
-</div>
-
-<div class="corazon" style="left:45%;">❤</div>
-<div class="corazon" style="left:50%;animation-delay:2s;">❤</div>
-<div class="corazon" style="left:55%;animation-delay:4s;">❤</div>
-</section>
-
-<!-- ESCENA 3 AIRPODS -->
+<!-- ESCENA ROPA -->
 <section>
 <div class="flex">
-<div class="persona" style="position:relative;">
-<div class="airpod"></div>
-</div>
-<div class="persona mujer"></div>
+<div class="persona">
+<div class="dialogo">Tienes mucha ropa...</div>
 </div>
 
-<div class="dialogo">Yo no pagaría por eso...</div>
-</section>
+<div class="persona mujer">
+<div class="dialogo">Pero me hace feliz comprarla...</div>
+</div>
+</div>
 
-<!-- ESCENA 4 -->
-<section>
 <div class="ropa">
 <div class="bolsa"></div>
 <div class="bolsa"></div>
 <div class="bolsa"></div>
 </div>
-
-<div class="dialogo">Tienes mucha ropa... no deberías comprar tanto...</div>
 </section>
 
-<!-- ESCENA 5 -->
+<!-- ESCENA ABRAZO -->
 <section>
 <div class="abrazo">
 <div class="persona"></div>
 <div class="persona mujer"></div>
 </div>
-
-<div class="dialogo">Te amo con todo y tus audifonos chafita estafados</div>
-<div class="dialogo">Te amo con toda la ropa que usas solo una vez.</div>
 </section>
 
 <!-- FINAL -->
 <section>
 <div class="final">
-Te amo por siempre, sea como sea, amarte es apoyarte, amarte es impulsarte y sobre todo amarte es mejorar como persona, como pareja y como familia, no te vayas nunca de mi lado amor mio, sigo aprendiendo a amarte más de lo que ya te amo cariño...
+Hola amorcito, estoy aprendiendo a que no nos tiene que gustar lo mismo para funcionar...  
+Te amo por siempre, sea como sea, amarte es apoyarte, amarte es impulsarte y sobre todo amarte es mejorar como persona, como pareja y como familia 💙
 </div>
 </section>
-
-<!-- AUDIO -->
-<audio id="musica" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
 
 <script>
 
 /* Scroll reveal */
 const sections = document.querySelectorAll("section");
+const dialogos = document.querySelectorAll(".dialogo");
 
 const observer = new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
 entry.target.classList.add("visible");
+
+let d = entry.target.querySelectorAll(".dialogo");
+d.forEach((dialogo,i)=>{
+setTimeout(()=>{
+dialogo.classList.add("visible");
+}, i*1500);
+});
+
+}else{
+entry.target.classList.remove("visible");
+let d = entry.target.querySelectorAll(".dialogo");
+d.forEach(dialogo=>{
+dialogo.classList.remove("visible");
+});
 }
 });
-},{threshold:0.3});
+},{threshold:0.4});
 
 sections.forEach(section=>{
 observer.observe(section);
 });
 
-/* Música escena 3 */
-const musica = document.getElementById("musica");
-sections[2].addEventListener("mouseenter",()=>{
-musica.play();
-});
-
-/* Crear partículas */
+/* Brillos */
 for(let i=0;i<40;i++){
-let p = document.createElement("div");
-p.classList.add("particula");
-p.style.left=Math.random()*100+"vw";
-p.style.animationDuration=(5+Math.random()*10)+"s";
-p.style.opacity=Math.random();
-document.body.appendChild(p);
+let b = document.createElement("div");
+b.classList.add("brillo");
+b.style.left=Math.random()*100+"vw";
+b.style.top=Math.random()*100+"vh";
+b.style.animationDuration=(2+Math.random()*4)+"s";
+document.body.appendChild(b);
+}
+
+/* Flores */
+for(let i=0;i<15;i++){
+let f = document.createElement("div");
+f.classList.add("flor");
+f.innerHTML="🌸";
+f.style.left=Math.random()*100+"vw";
+f.style.animationDuration=(10+Math.random()*10)+"s";
+document.body.appendChild(f);
 }
 
 </script>
