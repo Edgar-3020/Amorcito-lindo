@@ -1,16 +1,256 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosotros 💙</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background: linear-gradient(to bottom,#1e3c72,#2a5298,#a18cd1,#fbc2eb);
+    font-family:'Playfair Display',serif;
+    overflow-x:hidden;
+    color:white;
+}
+
+/* SECCIONES */
+
+section{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+    position:relative;
+}
+
+/* SILUETAS */
+
+.persona{
+    width:70px;
+    height:170px;
+    background:rgba(255,255,255,0.18);
+    border-radius:40px;
+    position:relative;
+    transition:0.5s;
+}
+
+.persona::before{
+    content:"";
+    position:absolute;
+    top:-45px;
+    left:18px;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.18);
+}
+
+.escena-flex{
+    display:flex;
+    gap:60px;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+}
+
+/* FRASES */
+
+.frase{
+    font-size:clamp(18px,3vw,26px);
+    font-style:italic;
+    margin-top:40px;
+    max-width:800px;
+}
+
+/* DIÁLOGOS */
+
+.dialogo{
+    background:rgba(255,255,255,0.2);
+    padding:15px 25px;
+    border-radius:20px;
+    margin-top:25px;
+    font-family:'Dancing Script',cursive;
+    font-size:clamp(18px,3vw,24px);
+    backdrop-filter:blur(6px);
+    max-width:90%;
+}
+
+/* ABRAZO */
+
+.abrazo{
+    display:flex;
+    gap:0;
+}
+
+.abrazo .persona{
+    margin:0 -15px;
+}
+
+/* CORAZONES */
+
+.corazon{
+    position:absolute;
+    font-size:clamp(18px,3vw,28px);
+    color:pink;
+    animation:flotar 6s infinite;
+}
+
+@keyframes flotar{
+    0%{transform:translateY(0);opacity:0;}
+    50%{opacity:1;}
+    100%{transform:translateY(-200px);opacity:0;}
+}
+
+/* AIRPOD */
+
+.airpod{
+    width:25px;
+    height:40px;
+    background:white;
+    border-radius:20px;
+    position:absolute;
+    right:-30px;
+    top:20px;
+    animation:poner 3s forwards;
+}
+
+@keyframes poner{
+    to{transform:translateX(-40px);}
+}
+
+/* BOLSAS */
+
+.ropa{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    justify-content:center;
+}
+
+.bolsa{
+    width:50px;
+    height:60px;
+    border:3px solid white;
+    border-radius:8px;
+}
+
+/* MARCO FINAL */
+
+.final{
+    border:3px solid white;
+    padding:30px;
+    border-radius:25px;
+    max-width:900px;
+    font-family:'Dancing Script',cursive;
+    font-size:clamp(18px,3vw,26px);
+    background:rgba(255,255,255,0.15);
+}
+
+/* RESPONSIVE EXTRA PARA CELULARES */
+
+@media(max-width:600px){
+
+    .persona{
+        width:55px;
+        height:140px;
+    }
+
+    .persona::before{
+        width:30px;
+        height:30px;
+        left:12px;
+    }
+
+    .escena-flex{
+        gap:30px;
+    }
+
+    .abrazo .persona{
+        margin:0 -8px;
+    }
+}
+
+</style>
 </head>
+
 <body>
-<p class="p1">Index</p>
+
+<!-- ESCENA 1 -->
+<section>
+    <div class="escena-flex">
+        <div class="persona"></div>
+        <div class="persona"></div>
+    </div>
+
+    <div class="frase">
+        Quiero que sepas que sin importar las cosas siempre estoy para apoyarte en lo que es importante para ti
+    </div>
+</section>
+
+<!-- ESCENA 2 -->
+<section>
+    <div class="abrazo">
+        <div class="persona"></div>
+        <div class="persona"></div>
+    </div>
+
+    <div class="corazon" style="left:45%;">❤</div>
+    <div class="corazon" style="left:50%;animation-delay:2s;">❤</div>
+    <div class="corazon" style="left:55%;animation-delay:4s;">❤</div>
+</section>
+
+<!-- ESCENA 3 -->
+<section>
+    <div class="escena-flex">
+        <div class="persona" style="position:relative;">
+            <div class="airpod"></div>
+        </div>
+        <div class="persona"></div>
+    </div>
+
+    <div class="dialogo">Yo no pagaría por eso...</div>
+</section>
+
+<!-- ESCENA 4 -->
+<section>
+    <div class="ropa">
+        <div class="bolsa"></div>
+        <div class="bolsa"></div>
+        <div class="bolsa"></div>
+    </div>
+
+    <div class="dialogo">Tienes mucha ropa... no deberías comprar tanto...</div>
+</section>
+
+<!-- ESCENA 5 -->
+<section>
+    <div class="abrazo">
+        <div class="persona"></div>
+        <div class="persona"></div>
+    </div>
+
+    <div class="dialogo">Te amo con todo y tus audifonos chafita estafados</div>
+    <div class="dialogo">Te amo con toda la ropa que usas solo una vez.</div>
+</section>
+
+<!-- ESCENA FINAL -->
+<section>
+    <div class="final">
+        Te amo por siempre, sea como sea, amarte es apoyarte, amarte es impulsarte y sobre todo amarte es mejorar como persona, como pareja y como familia, no te vayas nunca de mi lado amor mio, sigo aprendiendo a amarte más de lo que ya te amo cariño...
+    </div>
+</section>
+
 </body>
 </html>
